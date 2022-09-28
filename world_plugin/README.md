@@ -18,3 +18,6 @@ catkin_make
 ```
 roslaunch world_plugin gazebo_world_plugin.launch
 ```
+
+
+[Tutorial Document](https://sites.google.com/view/gazebo-plugin-tutorials/3-write-a-world-plugin)

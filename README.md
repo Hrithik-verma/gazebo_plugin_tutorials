@@ -16,4 +16,4 @@ catkin_make
 ```
 
 ## Documents
-[**Tutorial Document Site**](https://sites.google.com/view/gazebo-plugin-tutorials/2-some-c-concept)
+[**Tutorial Document Site**](https://sites.google.com/view/gazebo-plugin-tutorials/home)

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<sdf version="1.4">
+
+  <world name="default">
+
+    <!-- <plugin name="world_gazebo_plugin" filename="libworld_gazebo_plugin.so"/> -->
+    <plugin name="gazebo_subscriber" filename="libgazebo_subscriber.so"/>
+
+  </world>
+
+</sdf>
+
+
+
+

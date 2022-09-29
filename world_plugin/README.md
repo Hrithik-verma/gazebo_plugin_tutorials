@@ -6,7 +6,7 @@ In this tutorial we will understand how to write a gazebo world plugin
 **asssuption**: Its assume that your are within ros_workspacew & source the terminals. If not than please change directory to respective workspace & source it with follow command:
 ```
 cd <workspace>
-source install/setup.bash
+source devel/setup.bash
 ```
 
 **In case you made any changes to plugin code, please do**

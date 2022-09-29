@@ -3,9 +3,18 @@
 <sdf version="1.4">
 
   <world name="default">
+    
+    <!-- ground plane-->
+    <include>
+            <uri>model://ground_plane</uri>
+        </include>
 
-    <!-- <plugin name="world_gazebo_plugin" filename="libworld_gazebo_plugin.so"/> -->
-    <plugin name="gazebo_subscriber" filename="libgazebo_subscriber.so"/>
+    <!-- ground sun-->
+    <include>
+        <uri>model://sun</uri>
+    </include>
+
+    <plugin name="world_gazebo_plugin" filename="libworld_gazebo_plugin.so"/>
 
   </world>
 

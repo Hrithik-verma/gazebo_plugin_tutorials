@@ -1,6 +1,6 @@
 #include <gazebo/gazebo.hh>                // for accessing all gazebo classes
-#include <gazebo/common/common.hh>         // for common fn in gazebo like WorldPlugin()
-#include <gazebo/physics/physics.hh>       // for gazebo physics, to access -- WorldPtr
+#include <gazebo/common/common.hh>         // for common fn in gazebo like ModelPlugin
+#include <gazebo/physics/physics.hh>       // for gazebo physics, to access -- ModelPtr
 
 
 
@@ -22,6 +22,7 @@ namespace gazebo {
             node->Init();
 
             // subscribe to topic 
+            //transport::SubscriberPtr subscri 
             this->sub = node->Subscribe("~/world_stats", &SubscriberGazeboPlugin::On_msg, this);
 
                                                                //equavalent: this->On_msg

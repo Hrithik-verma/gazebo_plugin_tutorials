@@ -17,7 +17,7 @@ public:
 
 
     this->vel = 0.1;         // assign a default value
-    if (_sdf->HasElement("model_vel"))
+    if (_sdf->HasElement("model_vel")) // check if element existence 
     {
         this->vel = _sdf->Get<double>("model_vel");  // use _sdf pointer & Get to find value in <model_vel>
         
@@ -46,6 +46,8 @@ public:
     this->count++;  // increment count
   }
 
+
+// data members
 private:
   physics::ModelPtr model;  // Pointer to the model
 

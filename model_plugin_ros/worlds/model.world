@@ -1,0 +1,42 @@
+<?xml version="1.0"?> 
+<sdf version="1.6">
+
+  <world name="default">
+        <!-- Ground Plane -->
+        <include>
+            <uri>model://ground_plane</uri>
+        </include>
+        
+        <!-- sun light-->
+        <include>
+            <uri>model://sun</uri>
+        </include>
+
+        <model name="box">
+            <pose>0 0 1 0 0 0</pose>
+            <link name="link">
+                <collision name="collision">
+                    <geometry>
+                        <box>
+                            <size>1 1 1</size>
+                        </box>
+                    </geometry>
+                </collision>
+
+                <visual name="visual">
+                    <geometry>
+                        <box>
+                            <size>1 1 1</size>
+                        </box>
+                    </geometry>
+                </visual>
+            </link>
+            
+            <plugin name="my_model_plugin" filename="libmodel_ros_plugin.so">
+                <model_vel>0.2</model_vel>
+            </plugin>
+
+        </model>        
+  </world>
+</sdf>
+

@@ -22,7 +22,7 @@ public:
         {
             int argc = 0; 
             char **argv = NULL;
-            // good pratices of init ros node 
+            // good pratice of init ros node 
             ros::init(argc, argv, "gazebo_client",
                 ros::init_options::NoSigintHandler);
         }

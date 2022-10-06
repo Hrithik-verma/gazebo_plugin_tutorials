@@ -3,13 +3,13 @@
 #include <gazebo/common/common.hh>         // for common fn in gazebo like ModelPlugin, event
 #include <gazebo/physics/physics.hh>       // for gazebo physics, to access -- ModelPtr
 #include <ignition/math/Vector3.hh>        // to access Vector3d() from ignition math class
-#include <ros/ros.h>                     // for acceessing ros
+#include <ros/ros.h>                      // for acceessing ros
 #include <std_msgs/Bool.h>                // std_msgs/Bool for ros
 
-#include <functional>            // to access boost::bind()
-#include <thread>                // to use multithreading
-#include "ros/callback_queue.h"    // for ros queue
-#include "ros/subscribe_options.h" // to access SubscribeOptions
+#include <functional>                     // to access boost::bind()
+#include <thread>                        // to use multithreading
+#include "ros/callback_queue.h"         // for ros callback queue
+#include "ros/subscribe_options.h"     // to access SubscribeOptions
 
 namespace gazebo {
 class ModelRosPlugin : public ModelPlugin {
@@ -32,18 +32,19 @@ public:
     this->rosNode.reset(new ros::NodeHandle("gazebo_client"));
 
     // subscribeoptions help to better manage multisubscriber (multithreading) 
-    ros::SubscribeOptions so = ros::SubscribeOptions::create<std_msgs::Bool>("/model_move_up", 
-                1, boost::bind(&ModelRosPlugin::Activate_Callback, this, _1), ros::VoidPtr(), &this->rosQueue);
-                                              //this->Activate_Callback
 
-        //VoidPtr() - if the reference count goes to 0 the subscriber callbacks will not get called
+    ros::SubscribeOptions so = ros::SubscribeOptions::create<std_msgs::Bool>("/model_move_up", 
+                                        1, boost::bind(&ModelRosPlugin::Activate_Callback, this, _1), ros::VoidPtr(), &this->rosQueue);
+    //                                                          this->Activate_Callback
+
+    //     VoidPtr() - if the reference count goes to 0 the subscriber callbacks will not get called
 
     this->sub = this->rosNode->subscribe(so);
 
     // Spin up the queue helper thread.
     this->rosQueueThread =
-    std::thread(std::bind(&ModelRosPlugin::QueueThread, this));   //equvalent to ros.spin()
-                                         //this->QueueThread
+    std::thread(std::bind(&ModelRosPlugin::QueueThread, this));   //c++ threading to keep 
+                                         //this->QueueThread       this->QueueThread() fn running
 
     // Store the pointer to the model
     this->model = _model;
@@ -68,12 +69,14 @@ public:
 
 
   /// ROS helper function that processes messages  
- private: void QueueThread()             // here we have define till what it will spin & 
-    {                                       // keep taking data on the topic
+ private: void QueueThread()           // here we have define till what it will spin 
+    {                                       
     static const double timeout = 0.01;
-        while (this->rosNode->ok())
+        while (this->rosNode->ok())    // while rosnode exist 
         {
-            this->rosQueue.callAvailable(ros::WallDuration(timeout));
+            this->rosQueue.callAvailable(ros::WallDuration(timeout));  //invoke callback 
+        //                                                              after check avaibility  
+                                                                   
         }
     }
 

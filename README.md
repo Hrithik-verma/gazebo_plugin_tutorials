@@ -20,6 +20,7 @@ catkin_make
 **(To copy new updates to local machine)**
 ```
 cd <ros_workspace>/src/gazebo_plugin_tutorials
+git status
 git fetch 
 ```
 

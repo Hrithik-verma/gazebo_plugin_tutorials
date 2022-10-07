@@ -9,7 +9,8 @@ cd <workspace>
 source devel/setup.bash
 ```
 
-**In case you made any changes to plugin code, please do**
+# Build ROS Pakage <br />
+**note**: In case you made any changes to plugin code, please do
 ```
 catkin_make
 ```

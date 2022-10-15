@@ -44,6 +44,8 @@ namespace gazebo
             complete_light_name = this->model_name + "::" + this->Link_name + "::" + this->light_name;
             std::cout << "complete_light_name=" << complete_light_name << "\n";
         }
+
+        // fn to publish light color on ~/light/modify topic 
         void control_light(bool activate)
         {
 
@@ -104,7 +106,7 @@ namespace gazebo
             this->counter++;
         }
 
-        
+    
     private:
         physics::ModelPtr model;  // Pointer to the model
 

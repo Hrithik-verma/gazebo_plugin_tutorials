@@ -1,5 +1,5 @@
 # gazebo_plugin_tutorials
-This repository contains tutorials to write gazebo ros plugins
+This repository contains tutorials to make ros gazebo plugins
 
 
 # **Assumption**

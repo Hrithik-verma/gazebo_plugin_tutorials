@@ -14,7 +14,7 @@ public:
     this->model = _model;
 
     std::cout<< "Model Name=" << this->model->GetName() << std::endl;
-
+ModelPlugin
 
     this->vel = 0.1;         // assign a default value
     if (_sdf->HasElement("model_vel")) // check if element existence 

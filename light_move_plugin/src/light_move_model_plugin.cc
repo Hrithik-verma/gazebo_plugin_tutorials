@@ -20,7 +20,7 @@ namespace gazebo
             node->Init();
 
             // publish light state
-            light_pub = node->Advertise<msgs::Light>("~/light/modify");
+            this->light_pub = node->Advertise<msgs::Light>("~/light/modify");
 
             // Listen to the update event. This event is broadcast every
             // simulation iteration.
@@ -66,7 +66,7 @@ namespace gazebo
                 std::cout << "light off \n";
             }
             // Send the message on topic
-            light_pub->Publish(light_msg);
+            this->light_pub->Publish(light_msg);
         }
 
         // keep on updating as simulation iterates

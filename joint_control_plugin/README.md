@@ -1,5 +1,5 @@
-## Write A Gazebo Model Plugin
-In this tutorial we will understand how to write a gazebo model plugin to push a model.
+## Write A Joint Control Plugin
+In this tutorial we will understand how to make a model plugin to control gazebo joints.
 
 
 # Running Simulation <br />
@@ -15,15 +15,11 @@ source devel/setup.bash
 catkin_make
 ```
 
-**Launch gazebo simulator with model plugin**
+**Launch gazebo simulator with joint control plugin**
 ```
-roslaunch model_plugin model.launch
-```
-
-**Launch gazebo simulator with custom model plugin**
-```
-roslaunch model_plugin custom_model.launch
+roslaunch joint_control_plugin joint.launch 
 ```
 
 
-[Model Tutorial Document](https://sites.google.com/view/gazebo-plugin-tutorials/5-write-a-model-plugin)
+
+[Joint Control Tutorial Document](https://sites.google.com/view/gazebo-plugin-tutorials/9-gazebo-joint-move-plugin)

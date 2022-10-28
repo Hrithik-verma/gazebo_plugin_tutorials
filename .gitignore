@@ -4,3 +4,4 @@ world_plugin/.vscode/
 gazebo_plugin_tutorials/.vscode/
 light_move_plugin/.vscode/
 light_control_ros/.vscode/
+joint_control_plugin/.vscode/

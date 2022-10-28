@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+  <world name="default">
+        <!-- Ground Plane -->
+        <include>
+            <uri>model://ground_plane</uri>
+        </include>
+
+        <include>
+            <uri>model://sun</uri>
+        </include>
+
+        <gravity>0 0 0</gravity>
+    
+        <include>
+            <uri>model://t_model</uri>  <!-- add plugin to model.sdf -->
+            <pose>0 0 0.33 0 0 0</pose>
+        </include>
+        
+  </world>
+</sdf>
